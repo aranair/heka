@@ -268,6 +268,9 @@ func (k *KafkaInput) Run(ir pipeline.InputRunner, h pipeline.PluginHelper) (err 
 				break
 			}
 			if n, err = sRunner.SplitBytes(event.Value, nil); err != nil {
+				fmt.Println("----------")
+				fmt.Println(event.Value)
+				fmt.Println(n)
 				ir.LogError(fmt.Errorf("processing message from topic %s: %s",
 					event.Topic, err))
 			}
